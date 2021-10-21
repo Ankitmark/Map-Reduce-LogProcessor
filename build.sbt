@@ -11,9 +11,16 @@ val apacheCommonIOVersion = "2.11.0"
 val scalacticVersion = "3.2.9"
 val generexVersion = "1.0.2"
 
+val hadoopVersion = "3.3.1"
+
 resolvers += Resolver.jcenterRepo
 
 libraryDependencies ++= Seq(
+
+  "org.apache.hadoop" % "hadoop-mapreduce-client-core" % hadoopVersion,
+  "org.apache.hadoop" % "hadoop-common" % hadoopVersion,
+  "org.apache.hadoop" % "hadoop-client" % hadoopVersion,
+
   "ch.qos.logback" % "logback-core" % logbackVersion,
   "ch.qos.logback" % "logback-classic" % logbackVersion,
   "org.slf4j" % "slf4j-api" % sfl4sVersion,
@@ -25,3 +32,10 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % typesafeConfigVersion,
   "com.github.mifmif" % "generex" % generexVersion
 )
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x => MergeStrategy.first
+}
+
+assemblyJarName in assembly := "mapreduce-scala-sbt-assembly-fatjar-1.0.jar"
