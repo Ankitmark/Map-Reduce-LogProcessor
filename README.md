@@ -4,6 +4,21 @@
 ### 651288872
 ### Email: asing200@uic.edu
 
+
+## Overview
+
+The goal of this project is to solve a distributed computational problem using cloud computing technologies. In this we create a distributed program for parallel processing of the log files that are generated. Each entry in the log dataset describes a fictitios log message, which contains the time of the entry, the logging context name, the message level (i.e., INFO, WARN, DEBUG or ERROR), the name of the logging module and the message itself. Below is the sample log data:
+
+```
+17:02:52.558 [main] INFO  GenerateLogData$ - Log data generator started...
+17:02:52.804 [main] WARN  HelperUtils.Parameters$ - Max count 50000 is used to create records instead of timeouts
+17:02:53.194 [scala-execution-context-global-17] ERROR HelperUtils.Parameters$ - s%]s,+2k|D}K7b/XCwG&@7HDPR8z
+17:02:53.510 [scala-execution-context-global-17] INFO  HelperUtils.Parameters$ - ;kNI&V%v<c#eSDK@lPY(
+17:02:53.823 [scala-execution-context-global-17] INFO  HelperUtils.Parameters$ - l9]|92!uHUQ/IVczbg1L8rX5fF6gcf3~(;.Uz%K*5jTUd08
+17:02:54.135 [scala-execution-context-global-17] INFO  HelperUtils.Parameters$ - RA/MedXk>#SsSJM":X08;SveB{irOdBd*[C4#16XR[N6ldH(
+17:02:54.448 [scala-execution-context-global-17] WARN  HelperUtils.Parameters$ - _Zmsa_4@mzI%}d
+```
+
 ### The goal of this homework is for students to gain experience with solving a distributed computational problem using cloud computing technologies. The main textbook group (option 1) will design and implement an instance of the map/reduce computational model whereas the alternative textbook group (option 2) will use the CORBA model. You can check your textbook option in the corresponding column of the gradebook on the Blackboard.
 ### Grade: 9%
 #### This Git repo contains the description of the second homework that uses this implementation of a log file generator in Scala. Students should clone this repo using the command ```git clone git@github.com:0x1DOCD00D/LogFileGenerator.git```. Students should invest some time to learn the implementation details of the log generator, specifically, how no ```var``` is used and how mutation is avoided and recursion is used, however, it is not required for completing this homework.
