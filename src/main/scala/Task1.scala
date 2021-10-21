@@ -46,12 +46,13 @@ object Task1 {
       if(!(msg.length < 2)) {
         val start_time = itr.substring(0, 5)
 
-        val end_time = start_time.substring(0, 2) + ":0" + (start_time.substring(4, 5).toInt + 1).toString
-
-        val interval = start_time + " to " + end_time
+//        val end_time = start_time.substring(0, 2) + ":0" + (start_time.substring(4, 5).toInt + 1).toString
+//
+//        val interval = start_time + " to " + end_time
         //compare the time now and find the correct slot as key for this time of the itr and assign that time
         //as the key during context write.
         //time_interval = Current minute that is all logs in current minute will be mapped to this time interval.
+        val interval = "Distribution during this minute " +start_time + "  "
 
         val msg = itr.substring(12)
 

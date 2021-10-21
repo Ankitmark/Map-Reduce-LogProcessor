@@ -51,8 +51,9 @@ object Task2 {
       if(!(msg.length < 2)) {
 
         val start_time = itr.substring(0, 5)
-        val end_time = start_time.substring(0, 2) + ":0" + (start_time.substring(4, 5).toInt + 1).toString
-        val interval = start_time + " to " + end_time + " ERROR Count = "
+        //val end_time = start_time.substring(0, 2) + ":0" + (start_time.substring(4, 5).toInt + 1).toString
+        //val interval = start_time + " to " + end_time + " ERROR Count = "
+        val interval = "ERROR Count during this minute " +start_time + "  "
         val msg = itr.substring(12)
         val matched = regx.findFirstIn(msg)
 
