@@ -19,7 +19,7 @@ The goal of this project is to solve a distributed computational problem using c
 
 ### Mapper class: TokenizerMapper
 
-In this task the mapper take the log as input produce the time interval as key which is one minute and the rest of the log as value. In this processes the Mapper take the timestamp from the log and add one minute to it and create this start time and end time as time interval. Then the mapper strip out the rest of the log and combine it with the time interval to make the key and value pair where the time interval is the key and the message is the value.
+In this task the mapper take the log as input produce the time interval as key which is one minute and the rest of the log as value. In this processes the Mapper take the timestamp from the log and and create each minute as time interval. Then the mapper strip out the rest of the log and combine it with the time interval to make the key and value pair where the time interval is the key and the message is the value.
 
 ### Reducer class: IntSumReader
 
@@ -28,13 +28,13 @@ Take the time interval as key and finds the distribution of different types of m
 The output snippet looks as follows:
 ```
 
-17:02 to 17:03,WARN: 1 DEBUG: 0 INFO: 1 ERROR: 0
-17:03 to 17:04,WARN: 1 DEBUG: 2 INFO: 11 ERROR: 3
-17:04 to 17:05,WARN: 3 DEBUG: 4 INFO: 9 ERROR: 0
-17:05 to 17:06,WARN: 2 DEBUG: 3 INFO: 10 ERROR: 1
-17:06 to 17:07,WARN: 2 DEBUG: 1 INFO: 16 ERROR: 0
-17:07 to 17:08,WARN: 2 DEBUG: 4 INFO: 6 ERROR: 2
-17:08 to 17:09,WARN: 1 DEBUG: 3 INFO: 1 ERROR: 0
+Distribution during this minute 17:02  ,WARN: 1 DEBUG: 0 INFO: 1 ERROR: 0
+Distribution during this minute 17:03  ,WARN: 1 DEBUG: 2 INFO: 11 ERROR: 3
+Distribution during this minute 17:04  ,WARN: 3 DEBUG: 4 INFO: 9 ERROR: 0
+Distribution during this minute 17:05  ,WARN: 2 DEBUG: 3 INFO: 10 ERROR: 1
+Distribution during this minute 17:06  ,WARN: 2 DEBUG: 1 INFO: 16 ERROR: 0
+Distribution during this minute 17:07  ,WARN: 2 DEBUG: 4 INFO: 6 ERROR: 2
+Distribution during this minute 17:08  ,WARN: 1 DEBUG: 3 INFO: 1 ERROR: 0
 
 ```
 
@@ -44,7 +44,7 @@ In this task two map-reduce jobs are used to first get the error counts and then
 
 ### First Mapper class: TokenizerMapper
 
-In this task the mapper take the log as input produce the time interval as key which is one minute and the rest of the log as value. In this processes the Mapper take the timestamp from the log and add one minute to it and create this start time and end time as time interval. Then the mapper strip out the rest of the log and combine it with the time interval to make the key and value pair where the time interval is the key and the message is the value.
+In this task the mapper take the log as input produce the time interval as key which is one minute and the rest of the log as value. In this processes the Mapper take the timestamp from the log and create each minute as time interval. Then the mapper strip out the rest of the log and combine it with the time interval to make the key and value pair where the time interval is the key and the message is the value.
 
 ### First Reducer class: Task2Reducer
 
@@ -65,10 +65,10 @@ This class sorts the result from the keyValueSwapper mapper class where the keys
 
 The output snippet looks as follows:
 ```
-17:03 to 17:04 ERROR Count = ,3
-17:07 to 17:08 ERROR Count = ,2
-17:05 to 17:06 ERROR Count = ,1
-17:08 to 17:09 ERROR Count = ,0
+ERROR Count during this minute 17:03  ,3
+ERROR Count during this minute 17:07  ,2
+ERROR Count during this minute 17:05  ,1
+ERROR Count during this minute 17:08  ,0
 
 ```
 
